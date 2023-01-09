@@ -31,3 +31,9 @@ models.append(("RF", RandomForestClassifier()))
 models.append(("GB", GradientBoostingClassifier()))
 models.append(("ANN", MLPClassifier()))
 
+from sklearn.metrics import accuracy_score
+
+for name, model in models:
+    model.fit(X_Data, Y_Data.values.ravel())
+    Y_Pred = model.predict(X_Data)
+    print(name, "'s Accurancy is ", accuracy_score(Y_Data, Y_Pred))
